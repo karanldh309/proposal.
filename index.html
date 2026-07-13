@@ -3,61 +3,207 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>❤️ Proposal ❤️</title>
+<title>For Simran ❤️</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-    margin:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    background:#ffdde1;
-    font-family:Arial,sans-serif;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffd1dc,#fff0f5);
 }
-.box{
-    text-align:center;
+
+.container{
+text-align:center;
+position:relative;
+z-index:2;
 }
+
+.panda{
+width:230px;
+animation:float 2s ease-in-out infinite;
+}
+
+@keyframes float{
+50%{transform:translateY(-12px);}
+}
+
 h1{
-    color:#e91e63;
+color:#ff2e63;
+margin-top:15px;
+font-size:38px;
 }
+
+p{
+font-size:24px;
+margin:18px;
+color:#444;
+}
+
 button{
-    padding:12px 30px;
-    margin:10px;
-    border:none;
-    border-radius:10px;
-    font-size:18px;
-    cursor:pointer;
+padding:14px 35px;
+font-size:20px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+margin:10px;
+transition:.3s;
 }
+
 #yes{
-    background:#4CAF50;
-    color:white;
+background:#00c853;
+color:white;
 }
+
+#yes:hover{
+transform:scale(1.1);
+}
+
 #no{
-    background:#f44336;
-    color:white;
+background:#ff3d3d;
+color:white;
+position:absolute;
+}
+
+#message{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:90%;
+max-width:600px;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,.3);
+color:#ff2e63;
+font-size:24px;
+line-height:1.7;
+animation:popup .8s;
+z-index:999;
+}
+
+@keyframes popup{
+from{
+transform:translate(-50%,-50%) scale(.4);
+opacity:0;
+}
+to{
+transform:translate(-50%,-50%) scale(1);
+opacity:1;
+}
+}
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:30px;
+animation:fly 5s linear forwards;
+pointer-events:none;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-110vh);
+opacity:0;
+}
 }
 </style>
+
 </head>
+
 <body>
 
-<div class="box">
-<h1>🌹 Will You Be Mine? ❤️</h1>
+<div class="container">
 
-<button id="yes" onclick="yes()">Yes 💖</button>
-<button id="no" onclick="no()">No 😅</button>
+<img class="panda"
+src="https://i.imgur.com/2DhmtJ4.png">
 
-<h2 id="msg"></h2>
+<h1>❤️ Simran ❤️</h1>
+
+<p>Will You Be Mine Forever? 🥺❤️</p>
+
+<button id="yes">YES 💖</button>
+<button id="no">NO 😅</button>
+
+</div>
+
+<div id="message">
+
+🌹<br><br>
+
+<b>
+Teri muskurahat meri sabse pyari dua hai,<br><br>
+
+Tera naam hi mere dil ki wajah hai.<br><br>
+
+Agar aaj tera "Haan" mil jaye...<br><br>
+
+To meri har adhoori khwahish mukammal ho jaye. ❤️🌹
+</b>
+
 </div>
 
 <script>
-function yes(){
-document.getElementById("msg").innerHTML="❤️ Yay! Thank you! 🌹";
+
+const no=document.getElementById("no");
+
+function moveButton(){
+
+let x=Math.random()*(window.innerWidth-120);
+let y=Math.random()*(window.innerHeight-70);
+
+no.style.left=x+"px";
+no.style.top=y+"px";
+
 }
 
-function no(){
-document.getElementById("msg").innerHTML="😊 Thanks for being honest. I respect your decision.";
+moveButton();
+
+no.addEventListener("mouseover",moveButton);
+no.addEventListener("click",moveButton);
+no.addEventListener("touchstart",moveButton);
+
+document.getElementById("yes").onclick=function(){
+
+document.getElementById("message").style.display="block";
+
+for(let i=0;i<120;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*35)+"px";
+
+heart.style.animationDuration=(3+Math.random()*2)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),5000);
+
 }
+
+};
+
 </script>
 
 </body>
