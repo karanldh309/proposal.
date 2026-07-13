@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ Proposal ❤️</title>
+
+<style>
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#ffdde1;
+    font-family:Arial,sans-serif;
+}
+.box{
+    text-align:center;
+}
+h1{
+    color:#e91e63;
+}
+button{
+    padding:12px 30px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+}
+#yes{
+    background:#4CAF50;
+    color:white;
+}
+#no{
+    background:#f44336;
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h1>🌹 Will You Be Mine? ❤️</h1>
+
+<button id="yes" onclick="yes()">Yes 💖</button>
+<button id="no" onclick="no()">No 😅</button>
+
+<h2 id="msg"></h2>
+</div>
+
+<script>
+function yes(){
+document.getElementById("msg").innerHTML="❤️ Yay! Thank you! 🌹";
+}
+
+function no(){
+document.getElementById("msg").innerHTML="😊 Thanks for being honest. I respect your decision.";
+}
+</script>
+
+</body>
+</html>
