@@ -1,155 +1,93 @@
-```html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Anika ❤️</title>
+<title>One Last Chance ❤️</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-background:linear-gradient(135deg,#ff758c,#ff7eb3);
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-overflow:hidden;
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
 }
-
-.container{
-text-align:center;
-color:white;
-padding:20px;
+.box{
+    text-align:center;
 }
-
 h1{
-font-size:42px;
-margin-bottom:15px;
+    font-size:35px;
 }
-
-p{
-font-size:22px;
-margin-bottom:30px;
-}
-
 button{
-padding:15px 35px;
-font-size:20px;
-border:none;
-border-radius:40px;
-cursor:pointer;
-margin:10px;
-transition:.3s;
+    padding:15px 35px;
+    font-size:20px;
+    margin:20px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
 }
-
 #yes{
-background:#28a745;
-color:white;
+    background:#ff2d55;
+    color:white;
 }
-
-#yes:hover{
-transform:scale(1.1);
-}
-
 #no{
-background:#ff3333;
-color:white;
-position:absolute;
-}
-
-.heart{
-position:absolute;
-color:white;
-font-size:20px;
-animation:fall 6s linear infinite;
-}
-
-@keyframes fall{
-0%{
-transform:translateY(-100px);
-opacity:1;
-}
-100%{
-transform:translateY(110vh);
-opacity:0;
-}
+    background:#444;
+    color:white;
+    position:absolute;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-<h1>Dear Anika ❤️</h1>
+<div class="box">
+<h1>🥺 Will you unblock me and give me one more chance?</h1>
 
-<p>
-Kaafi time se ek baat dil me thi... 🥹<br><br>
-
-Jab bhi tumse baat hoti hai mera din special ban jaata hai. 💖<br>
-Tum sirf khoobsurat hi nahi, balki bahut achhi insaan bhi ho. 🌹<br><br>
-
-Main tumhe genuinely pasand karta hu... ❤️<br><br>
-
-<b>Will You Be My Girlfriend? 💍🥺</b>
-</p>
-
-<button id="yes" onclick="yesClick()">YES 💖</button>
-<button id="no" onmouseover="moveNo()">NO 🤒</button>
-
+<button id="yes" onclick="love()">Yes ❤️</button>
+<button id="no">No 💔</button>
 </div>
 
 <script>
+const no=document.getElementById("no");
 
-function yesClick(){
-document.body.innerHTML=`
-<div style="display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;background:#ff4d6d;color:white;">
-<div>
-<h1 style="font-size:55px;">Yay Anika ❤️🥹</h1>
-<h2>You just made me the happiest person alive! 💖🌹</h2>
-<h2>I Promise I'll Always Respect, Care & Stand By You. ❤️</h2>
-</div>
-</div>`;
+no.addEventListener("mouseover",move);
+no.addEventListener("click",move);
+
+function move(){
+    no.style.left=Math.random()*(window.innerWidth-120)+"px";
+    no.style.top=Math.random()*(window.innerHeight-60)+"px";
 }
 
-function moveNo(){
-let btn=document.getElementById("no");
-
-let x=Math.random()*(window.innerWidth-120);
-let y=Math.random()*(window.innerHeight-80);
-
-btn.style.left=x+"px";
-btn.style.top=y+"px";
+function love(){
+    document.body.innerHTML=`
+    <div style="text-align:center;color:white;">
+        <h1>❤️ Thank You ❤️</h1>
+        <h2>I promise I'll never give you a reason to block me again. 🌹</h2>
+    </div>`;
 }
+<Dear Jerry ❤️,
 
-function hearts(){
-let heart=document.createElement("div");
-heart.classList.add("heart");
-heart.innerHTML="❤️";
+Shayad tumne mujhe block kar diya,
+lekin meri feelings block nahi hui.
 
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(20+Math.random()*30)+"px";
+Main bas itna chahti hoon ki
+ek baar bina gusse ke meri baat sun lo.
 
-document.body.appendChild(heart);
+Main perfect nahi hoon,
+par jo bhi feel karti hoon,
+woh dil se karti hoon.
 
-setTimeout(()=>{
-heart.remove();
-},6000);
-}
+Agar tum ek aur chance doge,
+toh main uski value hamesha karungi.
 
-setInterval(hearts,300);
+No pressure...
+Bas ek smile ke saath "Yes" keh dena. ❤️
 
-</script>
+– From Someone Who Still Cares 🌹>
 
-<<audio id="bgMusic" autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-  
-</audio>>
+</body>
 </html>
-```
