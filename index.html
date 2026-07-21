@@ -1,93 +1,204 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>One Last Chance ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jerry ❤️</title>
 
 <style>
-body{
+*{
     margin:0;
-    background:#111;
-    color:white;
-    font-family:Arial;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff5f9e,#ff8fab,#ffc2d1);
     display:flex;
     justify-content:center;
     align-items:center;
     height:100vh;
-    overflow:hidden;
-}
-.box{
     text-align:center;
 }
-h1{
-    font-size:35px;
+
+.container{
+    z-index:10;
 }
+
+h1{
+    color:#fff;
+    font-size:2.2rem;
+    margin-bottom:15px;
+}
+
+p{
+    color:white;
+    font-size:1.1rem;
+    margin-bottom:30px;
+}
+
 button{
     padding:15px 35px;
     font-size:20px;
-    margin:20px;
     border:none;
-    border-radius:30px;
+    border-radius:50px;
     cursor:pointer;
+    margin:10px;
+    transition:.3s;
 }
+
 #yes{
-    background:#ff2d55;
+    background:#ff1744;
     color:white;
 }
+
+#yes:hover{
+    transform:scale(1.1);
+}
+
 #no{
-    background:#444;
-    color:white;
+    background:white;
+    color:#ff1744;
     position:absolute;
+}
+
+/* Floating Hearts */
+.heart{
+    position:absolute;
+    color:#ff1744;
+    font-size:20px;
+    animation:float 8s linear infinite;
+    opacity:.8;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) scale(.5);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-120vh) scale(1.5);
+        opacity:0;
+    }
+}
+
+#letter{
+    display:none;
+    color:white;
+    max-width:700px;
+    padding:30px;
+    animation:fade 2s;
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+h2{
+    margin-bottom:20px;
+    font-size:35px;
+}
+
+#typing{
+    font-size:20px;
+    line-height:1.8;
+    white-space:pre-wrap;
 }
 </style>
 </head>
 
 <body>
 
-<div class="box">
-<h1>🥺 Will you unblock me and give me one more chance?</h1>
+<div class="container" id="main">
 
-<button id="yes" onclick="love()">Yes ❤️</button>
+<h1>Jerry ❤️</h1>
+
+<p>Will you please give me one last chance? 🥺</p>
+
+<button id="yes">Yes ❤️</button>
 <button id="no">No 💔</button>
+
+</div>
+
+<div id="letter">
+<h2>❤️ Thank You Jerry ❤️</h2>
+<p id="typing"></p>
 </div>
 
 <script>
+
+// Hearts
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(20+Math.random()*25)+"px";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+
+},200);
+
+// Moving No Button
 const no=document.getElementById("no");
 
+function move(){
+no.style.left=Math.random()*(window.innerWidth-120)+"px";
+no.style.top=Math.random()*(window.innerHeight-70)+"px";
+}
+
 no.addEventListener("mouseover",move);
+no.addEventListener("touchstart",move);
 no.addEventListener("click",move);
 
-function move(){
-    no.style.left=Math.random()*(window.innerWidth-120)+"px";
-    no.style.top=Math.random()*(window.innerHeight-60)+"px";
-}
+// Yes Button
+document.getElementById("yes").onclick=function(){
 
-function love(){
-    document.body.innerHTML=`
-    <div style="text-align:center;color:white;">
-        <h1>❤️ Thank You ❤️</h1>
-        <h2>I promise I'll never give you a reason to block me again. 🌹</h2>
-    </div>`;
-}
-<Dear Jerry ❤️,
+document.getElementById("main").style.display="none";
+document.getElementById("letter").style.display="block";
+
+let text=`Dear Jerry ❤️,
 
 Shayad tumne mujhe block kar diya,
-lekin meri feelings block nahi hui.
+lekin meri feelings kabhi block nahi hui.
 
 Main bas itna chahti hoon ki
-ek baar bina gusse ke meri baat sun lo.
+ek baar meri baat dil se sun lo.
 
-Main perfect nahi hoon,
-par jo bhi feel karti hoon,
-woh dil se karti hoon.
+Main perfect nahi hoon...
+Par jo bhi feel karti hoon,
+woh hamesha sach aur dil se karti hoon.
 
 Agar tum ek aur chance doge,
-toh main uski value hamesha karungi.
+toh main uski hamesha value karungi.
 
-No pressure...
-Bas ek smile ke saath "Yes" keh dena. ❤️
+Thank you for pressing YES.
+Tumhari ek smile hi mere liye bahut hai. ❤️🌹`;
 
-– From Someone Who Still Cares 🌹>
+let i=0;
+
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,35);
+}
+}
+
+type();
+
+}
+
+</script>
 
 </body>
 </html>
